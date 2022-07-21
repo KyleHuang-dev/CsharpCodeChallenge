@@ -1,0 +1,43 @@
+﻿using System;
+
+namespace quadratic_equation_calculator_21
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            CalculateRoot();
+            Console.Read();
+        }
+
+        public static void CalculateRoot()
+        {
+            Console.WriteLine("Enter the value for a:");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the value for b:");
+            double b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the value for c:");
+            double c = double.Parse(Console.ReadLine());
+
+            //x=(-b±√(b^2-4ac))/2a
+            double partOneOfEquation = Math.Pow(b, 2) - 4 * a * c;
+
+            if (partOneOfEquation <= 0)
+            {
+                Console.WriteLine("No Root.");
+            }
+            else
+            {
+                double x1 = (-b + Math.Sqrt(partOneOfEquation)) / 2 / a;
+                double x2 = (-b - Math.Sqrt(partOneOfEquation)) / 2 / a;
+                Console.WriteLine(x1);
+                Console.WriteLine(x2);
+            }
+
+        }
+
+    }
+}
+
