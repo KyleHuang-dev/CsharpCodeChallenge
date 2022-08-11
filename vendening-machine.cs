@@ -16,7 +16,44 @@ static int TakeValidIntInput()
 
 
   
-//
+static int PayAmount(double total)
+{
+	int selection;
+	double amount = 0;
+	while (total > 0.001)
+	{
+		Console.Clear();
+		Console.WriteLine("Your current due is : $" + total);
+		Console.WriteLine("Please enter one coin at a time:\n");
+		Console.WriteLine("Select 1 to pay $1.00");
+		Console.WriteLine("Select 2 to pay $0.50");
+		Console.WriteLine("Select 3 to pay $0.25");
+		Console.WriteLine("Select 4 to pay $0.10");
+		Console.WriteLine("Select 5 to pay $0.05");
+		Console.WriteLine("Select 6 to pay $0.01");
+		Console.WriteLine("Select 0 for returning to the Main Menu.");
+		selection = TakeValidIntInput();
+    
+		if (selection == 0) return 0;
+		else if (selection == 1) amount = 1.0;
+		else if (selection == 2) amount = 0.5;
+		else if (selection == 3) amount = 0.25;
+		else if (selection == 4) amount = 0.10;
+		else if (selection == 5) amount = 0.05;
+		else if (selection == 6) amount = 0.01;
+		if(total < amount)
+		{
+			Console.WriteLine("The system does not support overpayment! \nPlease select a lower amount.");
+			Console.WriteLine("Press any key to continue...");
+			Console.Read();
+		}
+		else
+		{
+			total = Math.Round(total - amount, 2);
+		}
+	}
+	return 1;
+}
 
 
   
